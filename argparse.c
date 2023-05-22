@@ -217,6 +217,11 @@ argparse_describe(struct argparse *self, const char *description,
     self->epilog      = epilog;
 }
 
+/* 此函数返回值为 普通参数的个数， 比如 test -t 1 a.c b.c 
+ * 其中a.c和b.c都是没有匹配的规则的，他们被放在argv数组中被返回 
+ * argparse_parse返回值就为2.
+ */
+
 int
 argparse_parse(struct argparse *self, int argc, const char **argv)
 {
